@@ -1,10 +1,20 @@
 'use strict';
 
 angular.module('weatherAppApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('MainCtrl', ['$scope', 'locationService',
+        function($scope, locationService) {
+
+            $scope.geolocationEnabled = locationService.hasGeolocation();
+            $scope.locationLoaded = false;
+
+            function onLocationLoaded(position) {
+                $scope.locationLoaded = true;
+                console.log(position);
+                $scope.$apply()
+            }
+
+            locationService.getLocation(onLocationLoaded);
+
+
+        }
+    ]);
