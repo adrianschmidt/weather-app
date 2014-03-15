@@ -1,20 +1,29 @@
 'use strict';
 
 angular.module('weatherAppApp')
-    .controller('MainCtrl', ['$scope', 'locationService',
-        function($scope, locationService) {
+    .controller('MainCtrl', ['$scope', 'Locationservice', 'Weatherservice',
+        function($scope, Locationservice, Weatherservice) {
 
-            $scope.geolocationEnabled = locationService.hasGeolocation();
+            $scope.geolocationEnabled = Locationservice.hasGeolocation();
             $scope.locationLoaded = false;
+            $scope.weatherLoaded = false;
+            $scope.weather = {};
 
-            function onLocationLoaded(position) {
-                $scope.locationLoaded = true;
-                console.log(position);
-                $scope.$apply()
+            function onWeatherLoaded(weather) {
+                $scope.weather = weather;
+
+                $scope.weatherLoaded = true;
             }
 
-            locationService.getLocation(onLocationLoaded);
+            function onLocationLoaded(position) {
+                Weatherservice.getWeather(position, onWeatherLoaded);
 
+                $scope.locationLoaded = true;
+            }
+
+            if ($scope.geolocationEnabled) {
+                Locationservice.getLocation(onLocationLoaded);
+            }
 
         }
     ]);

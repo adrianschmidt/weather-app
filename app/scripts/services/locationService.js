@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('weatherAppApp')
-    .service('locationService', function locationService() {
+    .service('Locationservice', function Locationservice() {
         function hasGeolocation() {
             return 'geolocation' in navigator;
         }

@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: locationService', function () {
+describe('Service: Locationservice', function () {
 
   // load the service's module
   beforeEach(module('weatherAppApp'));
 
   // instantiate service
-  var locationService;
+  var Locationservice;
   beforeEach(inject(function (_Locationservice_) {
-    locationService = _Locationservice_;
+    Locationservice = _Locationservice_;
   }));
 
   it('should do something', function () {
-    expect(!!locationService).toBe(true);
+    expect(!!Locationservice).toBe(true);
   });
 
 });

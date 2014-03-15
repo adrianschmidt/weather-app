@@ -2,5 +2,7 @@
   <header>
     <h1>Local Temperature</h1>
     <p ng-show="!locationLoaded">Loading location…</p>
+    <p ng-show="locationLoaded && !weatherLoaded">Loading weather…</p>
+    <p ng-if="weatherLoaded">{{weather.location}}: {{weather.temperature}}°C</p>
   </header>
 </section>
