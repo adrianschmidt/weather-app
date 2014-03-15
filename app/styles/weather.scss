@@ -1,0 +1,14 @@
+.weather-icon {
+    @extend .icon;
+    font-family: MeteoconsRegular;
+}
+
+.weather-description:first-letter {
+    text-transform: uppercase;
+}
+
+.forecast-day {
+    display: inline-block;
+    margin-left: 1.0rem;
+    margin-right: 1.0rem;
+}

@@ -27,7 +27,7 @@ angular.module('weatherAppApp')
         function transformWeather(data) {
             return {
                 location: data.name,
-                temp: data.main.temp,
+                temp: Math.round(data.main.temp),
                 description: data.weather[0].description,
                 icon: iconCodes[data.weather[0].icon]
             };
@@ -52,7 +52,7 @@ angular.module('weatherAppApp')
 
             forecast.days = _.map(data.list, function(day, index) {
                 return {
-                    temp: day.temp.day,
+                    temp: Math.round(day.temp.day),
                     description: day.weather[0].description,
                     icon: iconCodes[day.weather[0].icon],
                     day: moment().add('days', index).format('dddd')

@@ -10,6 +10,13 @@ angular.module('weatherAppApp')
             $scope.forecastLoaded = false;
             $scope.weather = {};
             $scope.forecast = {};
+            var expander = {
+                open: false,
+                toggle: function() {
+                    expander.open = !expander.open;
+                }
+            };
+            $scope.expander = expander;
 
             function onWeatherLoaded(weather) {
                 $scope.weather = weather;

@@ -11,6 +11,14 @@
     font-style: normal;
 }
 
+html {
+    //font-size: 10px;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
 .icon {
     display: inline-block;
     font-style: normal;
@@ -20,15 +28,5 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.weather-icon {
-    @extend .icon;
-    font-family: MeteoconsRegular;
-}
-
-.weather-description:first-letter {
-    text-transform: uppercase;
-}
-
-.forecast-day {
-    display: inline-block;
-}
+@import "expander";
+@import "weather";
