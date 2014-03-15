@@ -7,7 +7,9 @@ angular.module('weatherAppApp')
             $scope.geolocationEnabled = Locationservice.hasGeolocation();
             $scope.locationLoaded = false;
             $scope.weatherLoaded = false;
+            $scope.forecastLoaded = false;
             $scope.weather = {};
+            $scope.forecast = {};
 
             function onWeatherLoaded(weather) {
                 $scope.weather = weather;
@@ -15,8 +17,15 @@ angular.module('weatherAppApp')
                 $scope.weatherLoaded = true;
             }
 
+            function onForecastLoaded(forecast) {
+                $scope.forecast = forecast;
+
+                $scope.forecastLoaded = true;
+            }
+
             function onLocationLoaded(position) {
                 Weatherservice.getWeather(position, onWeatherLoaded);
+                Weatherservice.getForecast(position, onForecastLoaded);
 
                 $scope.locationLoaded = true;
             }

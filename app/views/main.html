@@ -1,8 +1,20 @@
 <section>
   <header>
-    <h1>Local Temperature</h1>
-    <p ng-show="!locationLoaded">Loading location…</p>
+    <h1>{{weather.location}}</h1>
+    <p class="temperature"><i class="weather-icon">N</i> {{weather.temp}}°C</p>
+    <p class="weather-description">{{weather.description}}</p>
+
+    <!--<p ng-show="!locationLoaded">Loading location…</p>
     <p ng-show="locationLoaded && !weatherLoaded">Loading weather…</p>
-    <p ng-if="weatherLoaded">{{weather.location}}: {{weather.temperature}}°C</p>
+    <p ng-if="weatherLoaded">{{weather.location}}: {{weather.temperature}}°C</p>-->
   </header>
+  <section>
+    <article class="forecast-day" ng-repeat="day in forecast.days">
+      <h1>{{day.day}}</h1>
+      <p class="temperature">
+        <i class="weather-icon">Q</i> {{day.temp}}°C
+      </p>
+      <p class="weather-description">{{day.description}}</p>
+    </article>
+  </section>
 </section>
