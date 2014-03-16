@@ -11,4 +11,14 @@
     display: inline-block;
     margin-left: 1.0rem;
     margin-right: 1.0rem;
+    vertical-align: top;
+    width: calc(50% - 2.0rem);
+
+    @media (min-width: 25.0rem) {
+    	width: calc(33.3333333333% - 2.0rem);
+    }
+
+    @media (min-width: 50.0rem) {
+    	width: calc(16.6666666666% - 2.0rem);
+    }
 }

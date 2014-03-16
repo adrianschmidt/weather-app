@@ -59,6 +59,8 @@ angular.module('weatherAppApp')
                 };
             });
 
+            forecast.days.shift();
+
             return forecast;
         }
 
